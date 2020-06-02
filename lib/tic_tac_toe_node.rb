@@ -17,14 +17,9 @@ class TicTacToeNode
       return false
     end
     if evaluator == self.next_mover_mark
-      self.children.all? do |child| 
-        child.losing_node?(evaluator)
-      end
+      self.children.all? { |child| child.losing_node?(evaluator)}
     else
-      self.children.any? do|child| 
-        child.losing_node?(evaluator)
-        #p child.board.tied?
-      end
+      self.children.any? { |child| child.losing_node?(evaluator)}
     end
   end
 
